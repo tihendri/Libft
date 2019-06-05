@@ -6,12 +6,11 @@
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 15:55:15 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/05 14:28:53 by tihendri         ###   ########.fr       */
+/*   Updated: 2019/06/05 16:16:42 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
 void	*ft_memccpy(void *d, const void *s, int c, size_t n)
 {

@@ -6,7 +6,7 @@
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 13:57:55 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/05 14:39:01 by tihendri         ###   ########.fr       */
+/*   Updated: 2019/06/05 16:32:40 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strcat(char *s1, const char *s2)
 	{
 		length++;
 	}
-	while (s2[count] && count && length)
+	while (s2[count] != '\0')
 	{
 		s1[count + length] = s2[count];
 		count++;
