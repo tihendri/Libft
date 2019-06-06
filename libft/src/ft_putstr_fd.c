@@ -6,7 +6,7 @@
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 16:31:44 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/05 14:38:01 by tihendri         ###   ########.fr       */
+/*   Updated: 2019/06/06 13:51:00 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 void	ft_putstr_fd(char const *s, int fd)
 {
-	while (*s)
+	if (s)
 	{
-		write(fd, s++, 1);
+		while (*s && fd >= 0)
+		{
+			write(fd, s++, 1);
+		}
 	}
 }

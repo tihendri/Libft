@@ -6,7 +6,7 @@
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 11:25:48 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/05 15:09:52 by tihendri         ###   ########.fr       */
+/*   Updated: 2019/06/06 13:56:09 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,12 @@ void	ft_striter(char *s, void (*f)(char *))
 	unsigned int n;
 
 	n = 0;
-	while (s[n] != '\0')
+	if (s)
 	{
-		f(s + n);
-		n++;
+		while (s[n] != '\0')
+		{
+			f(s + n);
+			n++;
+		}
 	}
 }

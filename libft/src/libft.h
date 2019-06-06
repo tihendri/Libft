@@ -6,7 +6,7 @@
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 13:26:58 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/05 16:08:00 by tihendri         ###   ########.fr       */
+/*   Updated: 2019/06/06 11:38:03 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int					ft_isascii(int c);
 int					ft_isdigit(int c);
 int					ft_isprint(int c);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
+int					ft_putchar(int c);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strequ(char const *s1, char const *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -67,8 +68,7 @@ void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_memdel(void **ap);
-void				ft_putchar(char c);
-void				ft_putchar_fd(char c, int fd);
+void				ft_putchar_fd(int c, int fd);
 void				ft_putendl(char const *s);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr(int n);
