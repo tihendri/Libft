@@ -6,7 +6,7 @@
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 15:57:36 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/06 14:27:46 by tihendri         ###   ########.fr       */
+/*   Updated: 2019/06/07 10:55:38 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ char	**ft_strsplit(char const *s, char c)
 	int		d;
 	char	**table;
 
-	a = 0;
-	d = 0;
-	table = (char **)malloc(sizeof(char *) * (ft_wordcount(s, c)) + 1);
 	if (s)
 	{
+		a = 0;
+		d = 0;
+		table = (char **)malloc(sizeof(char *) * (ft_wordcount(s, c)) + 1);
 		if (table == NULL)
 			return (NULL);
 		while (s[a])
@@ -39,7 +39,8 @@ char	**ft_strsplit(char const *s, char c)
 				d++;
 			}
 		}
+		table[d] = NULL;
+		return (table);
 	}
-	table[d] = NULL;
-	return (table);
+	return (0);
 }
