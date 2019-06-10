@@ -6,7 +6,7 @@
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 15:21:43 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/07 10:53:33 by tihendri         ###   ########.fr       */
+/*   Updated: 2019/06/10 12:02:20 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,29 @@
 
 char	*ft_strtrim(char const *s)
 {
-	unsigned int	a;
-	unsigned int	b;
-	unsigned int	c;
-	char			*string;
+	int		n;
+	int		len;
+	char	*string;
 
-	if (s)
+	if (s == NULL)
+		return (NULL);
+	len = ft_strlen(s);
+	while (s[len - 1] == ' ' || s[len - 1] == '\t' || s[len - 1] == '\n')
+		len--;
+	n = -1;
+	while (s[++n] == ' ' || s[n] == '\t' || s[n] == '\n')
+		len--;
+	if (len <= 0)
+		len = 0;
+	string = (char *)malloc(sizeof(char) * (len + 1));
+	if (string == NULL)
+		return (NULL);
+	s += n;
+	n = -1;
+	while (++n < len)
 	{
-		a = 0;
-		b = 0;
-		string = (char *)malloc(sizeof(char) * (b - a + 2));
-		c = ft_strlen(s) - 1;
-		while (s[a] == '\n' || s[a] == '\t' || s[a] == '\f' || s[a] == ' ')
-			a++;
-		if (s[b] == '\0')
-			return (ft_strcpy(ft_memalloc(sizeof(char) * 2), ""));
-		while (s[b] == '\n' || s[b] == '\t' || s[b] == '\f' || s[b] == ' ')
-			b--;
-		if (string == NULL)
-			return (NULL);
-		while (c < b - a + 1)
-		{
-			string[c] = s[a + c];
-			c++;
-		}
-		string[c] = '\0';
-		return (string);
+		string[n] = *s++;
 	}
-	return (0);
+	string[n] = '\0';
+	return (string);
 }
