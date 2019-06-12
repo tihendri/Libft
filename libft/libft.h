@@ -6,7 +6,7 @@
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 13:26:58 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/06 16:32:51 by tihendri         ###   ########.fr       */
+/*   Updated: 2019/06/12 09:55:29 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ int					ft_wordcount(char const *s, char c);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlen(const char *s);
 void				ft_bzero(void *s, size_t n);
-void				ft_lstadd(t_list **alst, t_list *new)
 void				*ft_memalloc(size_t size);
 void				*ft_memchr(const void *s, int c, size_t n);
 void				*ft_memccpy(void *d, const void *s, int c, size_t n);
