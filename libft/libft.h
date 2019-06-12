@@ -6,7 +6,7 @@
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 13:26:58 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/12 09:55:29 by tihendri         ###   ########.fr       */
+/*   Updated: 2019/06/12 14:06:14 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
-
-typedef struct		s_list
-{
-	void					*content;
-	size_t					content_size;
-	struct s_list			*next;
-}					t_list;
 
 char				**ft_strsplit(char const *s, char c);
 char				*ft_itoa(int n);
@@ -79,5 +72,19 @@ void				ft_strclr(char *s);
 void				ft_strdel(char **as);
 void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
+
+typedef struct		s_list
+{
+	void					*content;
+	size_t					content_size;
+	struct s_list			*next;
+}					t_list;
+
+t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+t_list				*ft_lstnew(void const *content, size_t content_size);
+void				ft_lstadd(t_list **alst, t_list *new);
+void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
+void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 
 #endif
