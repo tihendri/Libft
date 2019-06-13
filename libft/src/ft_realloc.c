@@ -1,39 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/23 14:25:54 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/13 14:30:49 by tihendri         ###   ########.fr       */
+/*   Created: 2019/06/13 11:45:46 by tihendri          #+#    #+#             */
+/*   Updated: 2019/06/13 11:48:13 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *s)
+char	*ft_realloc(char *p, size_t n)
 {
-	int nbr;
-	int sign;
+	char *new;
 
-	nbr = 0;
-	sign = 1;
-	while (*s == '\t' || *s == '\v' || *s == '\n' ||
-			*s == '\r' || *s == '\f' || *s == ' ')
-		s++;
-	if (*s == '-')
-	{
-		sign = -1;
-		s++;
-	}
-	else if (*s == '+')
-		s++;
-	while (*s >= '0' && *s <= '9')
-	{
-		nbr *= 10;
-		nbr += *s - '0';
-		s++;
-	}
-	return (sign *= nbr);
+	new = (char *)malloc(n);
+	ft_bzero(new, n);
+	ft_memcpy(new, p, ft_strlen(p) + 1);
+	fre(p);
+	return (new);
 }

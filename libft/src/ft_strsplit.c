@@ -6,78 +6,92 @@
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 15:57:36 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/10 12:56:05 by tihendri         ###   ########.fr       */
+/*   Updated: 2019/06/13 09:11:54 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-static int		ft_count_words(char const *str, char c)
+static size_t	ft_count_word(char *s, char c)
 {
-	int n;
-	int words;
+	size_t		n;
 
 	n = 0;
-	words = 0;
-	if (!str)
+	while (*s)
+	{
+		while (*s == c)
+			s++;
+		while (*s != c && *s)
+			s++;
+		n++;
+	}
+	return (n);
+}
+
+static void		ft_copy(char *dest, char *start, char *end)
+{
+	char		*d;
+
+	d = dest;
+	while (start <= end)
+	{
+		*d = *start;
+		d++;
+		start++;
+	}
+	*d = '\0';
+}
+
+static int		make_elm(char **arr, int arr_i, char *start, int len)
+{
+	arr[arr_i] = (char*)malloc(len + 1);
+	if (arr[arr_i] == NULL)
 		return (0);
-	while (str[n])
+	ft_copy(arr[arr_i], start, start + len - 1);
+	arr_i++;
+	return (arr_i);
+}
+
+static char		**make_array(char **arr, char const *s, char c)
+{
+	char		*cpy;
+	char		*start;
+	int			arr_i;
+	int			len;
+
+	cpy = (char *)s;
+	arr_i = 0;
+	while (*cpy)
 	{
-		while (str[n] == c && str[n])
-			n++;
-		if (str[n] != c && str[n])
-			words++;
-		while (str[n] != c && str[n])
-			n++;
+		len = 0;
+		while (*cpy == c)
+			cpy++;
+		start = cpy;
+		while (*cpy != c && *cpy)
+		{
+			len++;
+			cpy++;
+		}
+		if (len)
+			arr_i = make_elm(arr, arr_i, start, len);
 	}
-	return (words);
+	arr[arr_i] = 0;
+	return (arr);
 }
 
-static int		ft_next_word(char const *str, char c, int i)
+char			**ft_strsplit(char const *s, char c)
 {
-	if (i == 0 && str[i] != c && str[i])
-		return (i);
-	while (str[i] != c && str[i])
-		i++;
-	while (str[i] == c && str[i])
-		i++;
-	return (i);
-}
+	char		**arr;
 
-static int		ft_wlength(char const *str, char c, int i)
-{
-	int length;
-
-	length = 0;
-	while (str[i + length] != c && str[i + length])
-		length++;
-	return (length);
-}
-
-char			**ft_strsplit(char const *str, char c)
-{
-	char		**tab;
-	int			words;
-	int			index;
-	int			a;
-	int			j;
-
-	words = ft_count_words(str, c);
-	if (!(tab = (char**)malloc(sizeof(char*) * (words + 1))))
-		return (NULL);
-	a = 0;
-	index = 0;
-	while (a < words && str)
+	if (s)
 	{
-		index = ft_next_word(str, c, index);
-		j = 0;
-		if (!(tab[a] = (char*)malloc(sizeof(char) * ft_wlength(str, c, index))))
+		arr = (char**)malloc(sizeof(char*) * (ft_count_word((char*)s, c) + 1));
+		if (arr == NULL)
 			return (NULL);
-		while (str[index] != c)
-			tab[a][j++] = str[index++];
-		tab[a][j] = '\0';
-		a++;
+		arr = make_array(arr, s, c);
 	}
-	tab[a] = 0;
-	return (tab);
+	else
+		return (NULL);
+	return (arr);
 }
