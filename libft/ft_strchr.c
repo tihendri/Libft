@@ -1,22 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/24 11:48:31 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/05 14:28:09 by tihendri         ###   ########.fr       */
+/*   Created: 2019/05/21 13:55:17 by tihendri          #+#    #+#             */
+/*   Updated: 2019/06/24 13:10:49 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(int c)
+/*
+**locates the first occurrence of c (converted to a char) in the string pointed
+**to by s.
+**returns a pointer to the located character, or NULL if the character does
+**not appear in the string.
+*/
+
+char	*ft_strchr(const char *s, int c)
 {
-	if (c >= 32 && c <= 126)
+	size_t		n;
+
+	n = 0;
+	if (c == 0)
 	{
-		return (1);
+		while (s[n])
+		{
+			n++;
+		}
+		return ((char *)s + n);
 	}
-	return (0);
+	while (s[n])
+	{
+		if (s[n] == c)
+		{
+			return ((char *)s + n);
+		}
+		n++;
+	}
+	return (NULL);
 }

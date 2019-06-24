@@ -1,39 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/23 14:25:54 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/13 14:45:47 by tihendri         ###   ########.fr       */
+/*   Created: 2019/05/24 11:48:31 by tihendri          #+#    #+#             */
+/*   Updated: 2019/06/24 11:37:26 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
-{
-	int nbr;
-	int sign;
+/*
+**checks if input value is a printable character.
+*/
 
-	nbr = 0;
-	sign = 1;
-	while (*str == '\t' || *str == '\v' || *str == '\n' ||
-			*str == '\r' || *str == '\f' || *str == ' ')
-		str++;
-	if (*str == '-')
-	{
-		sign = -1;
-		str++;
-	}
-	else if (*str == '+')
-		str++;
-	while (*str >= '0' && *str <= '9')
-	{
-		nbr *= 10;
-		nbr += *str - '0';
-		str++;
-	}
-	return (sign *= nbr);
+int	ft_isprint(int c)
+{
+	if (c >= 32 && c <= 126)
+		return (1);
+	return (0);
 }

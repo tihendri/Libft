@@ -6,11 +6,17 @@
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 09:38:04 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/06 14:38:00 by tihendri         ###   ########.fr       */
+/*   Updated: 2019/06/24 11:48:23 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+**transforms an integer n into a string representation.
+**allocates memory for the string to be returned.
+**the reverse function of atoi (ft_atoi).
+*/
 
 char	*ft_itoa(int n)
 {

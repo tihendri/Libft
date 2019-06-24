@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/31 15:02:33 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/12 15:32:18 by tihendri         ###   ########.fr       */
+/*   Created: 2019/05/20 11:08:55 by tihendri          #+#    #+#             */
+/*   Updated: 2019/06/24 13:18:19 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
-{
-	char	*concatenation;
+/*
+**Copy the string src to dst (including the null-terminating character.).
+**The two strings should not overlap, as this would be undefined behaviour.
+*/
 
-	if (s1 == NULL || s2 == NULL)
-		return (NULL);
-	concatenation = ft_strnew(ft_strlen(s1) + ft_strlen(s2));
-	if (concatenation == NULL)
-		return (NULL);
-	ft_strcpy(concatenation, s1);
-	return (ft_strcat(concatenation, s2));
+char	*ft_strcpy(char *dst, const char *src)
+{
+	int i;
+
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
 }

@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/24 11:07:44 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/05 14:25:27 by tihendri         ###   ########.fr       */
+/*   Created: 2019/05/31 11:32:24 by tihendri          #+#    #+#             */
+/*   Updated: 2019/06/24 13:34:58 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+/*
+**Applies the function f to each character of the string passed as argument,
+**and passing its index as first argument.
+**Each character is passed by address to f to be modified if necessary.
+*/
+
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	if ((c >= 48 && c <= 57) || (c >= 65 && c <= 90) ||
-			(c >= 97 && c <= 122))
-		return (1);
-	return (0);
+	unsigned int n;
+
+	if (s == NULL || f == NULL)
+		return ;
+	n = 0;
+	while (s[n] != '\0')
+	{
+		f(n, &s[n]);
+		n++;
+	}
 }

@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/21 13:55:17 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/05 14:39:36 by tihendri         ###   ########.fr       */
+/*   Created: 2019/05/20 13:57:55 by tihendri          #+#    #+#             */
+/*   Updated: 2019/06/24 13:06:51 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
-{
-	size_t		n;
+/*
+**appends (adds to the end) a copy of the null-terminated string s2 to the
+**end of the null-terminated string s1, then add a terminating NULL chararcter.
+**returns the pointer s1.
+*/
 
-	n = 0;
-	if (c == 0)
+char	*ft_strcat(char *s1, const char *s2)
+{
+	size_t		count;
+	size_t		length;
+
+	count = 0;
+	length = 0;
+	while (s1[length])
 	{
-		while (s[n])
-		{
-			n++;
-		}
-		return ((char *)s + n);
+		length++;
 	}
-	while (s[n])
+	while (s2[count] != '\0')
 	{
-		if (s[n] == c)
-		{
-			return ((char *)s + n);
-		}
-		n++;
+		s1[count + length] = s2[count];
+		count++;
 	}
-	return (NULL);
+	s1[length + count] = '\0';
+	return (s1);
 }

@@ -1,30 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/24 15:55:15 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/05 16:16:42 by tihendri         ###   ########.fr       */
+/*   Created: 2019/05/23 14:25:54 by tihendri          #+#    #+#             */
+/*   Updated: 2019/06/24 11:47:48 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *d, const void *s, int c, size_t n)
-{
-	size_t			i;
-	unsigned char	cc;
+/*
+**converts the string pointed to by str to int representation.
+*/
 
-	i = 0;
-	cc = (unsigned char)c;
-	while (i < n)
+int	ft_atoi(const char *str)
+{
+	int nbr;
+	int sign;
+
+	nbr = 0;
+	sign = 1;
+	while (*str == '\t' || *str == '\v' || *str == '\n' ||
+			*str == '\r' || *str == '\f' || *str == ' ')
+		str++;
+	if (*str == '-')
 	{
-		((char *)d)[i] = ((char *)s)[i];
-		i++;
-		if (((unsigned char *)d)[i - 1] == cc)
-			return (&((unsigned char *)d)[i]);
+		sign = -1;
+		str++;
 	}
-	return (NULL);
+	else if (*str == '+')
+		str++;
+	while (*str >= '0' && *str <= '9')
+	{
+		nbr *= 10;
+		nbr += *str - '0';
+		str++;
+	}
+	return (sign *= nbr);
 }

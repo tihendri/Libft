@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/20 13:57:55 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/05 16:32:40 by tihendri         ###   ########.fr       */
+/*   Created: 2019/05/31 11:12:04 by tihendri          #+#    #+#             */
+/*   Updated: 2019/06/24 13:22:00 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
-{
-	size_t		count;
-	size_t		length;
+/*
+**Frees a string's address and sets it's pointer to NULL.
+**I used ft_memdel because it works exactly the same as this function.
+*/
 
-	count = 0;
-	length = 0;
-	while (s1[length])
-	{
-		length++;
-	}
-	while (s2[count] != '\0')
-	{
-		s1[count + length] = s2[count];
-		count++;
-	}
-	s1[length + count] = '\0';
-	return (s1);
+void	ft_strdel(char **as)
+{
+	ft_memdel((void **)as);
 }

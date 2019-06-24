@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   bzero.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/21 11:32:59 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/06 15:12:29 by tihendri         ###   ########.fr       */
+/*   Created: 2019/05/24 15:12:56 by tihendri          #+#    #+#             */
+/*   Updated: 2019/06/24 12:03:45 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
-{
-	char	*newstring;
-	char	*n;
-	char	*length;
+/*
+**writes n zeroed bytes to the string s.
+**If n is zero, bzero() does nothing.
+*/
 
-	newstring = (char *)malloc(ft_strlen(s1) + 1);
-	if (newstring == NULL)
-		return (NULL);
-	n = (char *)s1;
-	length = newstring;
-	while (*n)
+void	ft_bzero(void *s, size_t n)
+{
+	char			*z;
+	size_t			q;
+
+	z = s;
+	q = 0;
+	while (q < n)
 	{
-		*length++ = *n++;
+		((unsigned char *)z)[q] = '\0';
+		q++;
 	}
-	*length = '\0';
-	return (newstring);
+	s = z;
 }

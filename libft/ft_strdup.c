@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/29 12:11:05 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/05 14:49:32 by tihendri         ###   ########.fr       */
+/*   Created: 2019/05/21 11:32:59 by tihendri          #+#    #+#             */
+/*   Updated: 2019/06/24 13:24:17 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
-{
-	void	*p;
+/*
+**allocates sufficient memory for a copy of the string s1, does the copy, and
+**returns a pointer to it.
+**If insufficient memory is available, NULL is returned.
+*/
 
-	p = malloc(size);
-	if (p == NULL)
-	{
+char	*ft_strdup(const char *s1)
+{
+	char	*newstring;
+	char	*n;
+	char	*length;
+
+	newstring = (char *)malloc(ft_strlen(s1) + 1);
+	if (newstring == NULL)
 		return (NULL);
+	n = (char *)s1;
+	length = newstring;
+	while (*n)
+	{
+		*length++ = *n++;
 	}
-	ft_bzero(p, size);
-	return (p);
+	*length = '\0';
+	return (newstring);
 }

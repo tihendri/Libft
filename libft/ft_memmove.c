@@ -6,11 +6,17 @@
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 09:41:21 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/06 14:59:16 by tihendri         ###   ########.fr       */
+/*   Updated: 2019/06/24 12:09:48 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+**copies len bytes from string src to string dst.
+**The two strings may overlap, however the copy must be done non-destructively.
+**returns the original value of dst.
+*/
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {

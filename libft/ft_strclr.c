@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/31 10:55:37 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/06 13:52:48 by tihendri         ###   ########.fr       */
+/*   Created: 2019/05/31 11:14:46 by tihendri          #+#    #+#             */
+/*   Updated: 2019/06/24 13:14:03 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_memdel(void **ap)
+/*
+**sets every character in the string to the NULL character value.
+**i.e. this fuction clears a string.
+*/
+
+void	ft_strclr(char *s)
 {
-	if (ap)
+	unsigned int i;
+
+	i = 0;
+	if (s)
 	{
-		free(*ap);
-		*ap = NULL;
+		while (s[i] != '\0')
+		{
+			s[i] = '\0';
+			i++;
+		}
 	}
 }

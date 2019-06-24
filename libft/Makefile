@@ -6,17 +6,18 @@
 #    By: tihendri <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/05 14:09:03 by tihendri          #+#    #+#              #
-#    Updated: 2019/06/12 13:40:04 by tihendri         ###   ########.fr        #
+#    Updated: 2019/06/24 10:30:41 by tihendri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 	= libft.a
 
+# ar is an archiver that maintains groups of files as a single archive file
 AR		= ar
 
 CC 		= gcc
 
-CFLAGS	= -Wall -Wextra -Werror -I .
+CFLAGS	= -Wall -Wextra -Werror
 
 PART1	= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 		ft_memchr.c ft_memcmp.c	ft_strlen.c ft_strdup.c ft_strcpy.c \
@@ -36,26 +37,28 @@ BONUS	= ft_lstadd.c ft_lstnew.c ft_lstdelone.c ft_lstdel.c \
 
 FILES 	= $(PART1) $(PART2) $(BONUS)
 
-SRC		= $(addprefix src/, $(FILES))
-OBJ 	= $(addprefix obj/, $(FILES:.c=.o))
+SRC		= $(FILES)
+OBJ 	= $(FILES:.c=.o)
 
 .PHONY: all clean fclean re
+# .PHONY is used to protect the command recipes assigned to it
+# in case there's a file with that name
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(AR) rcs $(NAME) $(OBJ)
+# here we are creating/modifying an archive by calling $(AR)
+# rcs: Replace, Create, Sort
+# https://www.mkssoftware.com/docs/man1/ar.1.asp
 
 clean:
-	/bin/rm -rf obj
+	@/bin/rm -rf $(OBJ)
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	@/bin/rm -f $(NAME)
 
 re: fclean all
 
-obj:
-	mkdir obj/
-
-obj/%.o: src/%.c | obj
+%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

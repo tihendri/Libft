@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bzero.c                                            :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/24 15:12:56 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/05 16:07:17 by tihendri         ###   ########.fr       */
+/*   Created: 2019/05/24 11:36:06 by tihendri          #+#    #+#             */
+/*   Updated: 2019/06/24 11:35:36 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
-{
-	char			*z;
-	size_t			q;
+/*
+**checks whether input value is on the ascii table.
+*/
 
-	z = s;
-	q = 0;
-	while (q < n)
-	{
-		((unsigned char *)z)[q] = '\0';
-		q++;
-	}
-	s = z;
+int	ft_isascii(int c)
+{
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
 }

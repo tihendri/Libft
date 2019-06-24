@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/24 12:10:16 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/05 14:34:08 by tihendri         ###   ########.fr       */
+/*   Created: 2019/05/31 11:25:48 by tihendri          #+#    #+#             */
+/*   Updated: 2019/06/24 13:32:05 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
-{
-	unsigned char	*p;
-	size_t			n;
+/*
+**Applies the function f to each character of the string passed as argument.
+**Each address is passed by address to f to be modified if necessary.
+*/
 
-	p = b;
-	n = 0;
-	while (n < len)
+void	ft_striter(char *s, void (*f)(char *))
+{
+	if (s == NULL || f == NULL)
+		return ;
+	while (*s)
 	{
-		p[n] = c;
-		n++;
+		f(s);
+		s++;
 	}
-	return (b);
 }
