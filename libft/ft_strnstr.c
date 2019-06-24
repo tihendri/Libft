@@ -6,11 +6,17 @@
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 15:04:29 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/05 16:12:06 by tihendri         ###   ########.fr       */
+/*   Updated: 2019/06/24 14:20:45 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+**Locates the first occurrence of the null-terminated string needle
+**in the string haystack, where not more than len characters are searched.
+**Characters that appear after a `\0' character are not searched.
+*/
 
 char	*ft_strnstr(const char *h, const char *n, size_t len)
 {

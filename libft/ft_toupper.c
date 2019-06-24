@@ -6,11 +6,15 @@
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 11:51:23 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/05 14:46:48 by tihendri         ###   ########.fr       */
+/*   Updated: 2019/06/24 14:45:50 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+**Makes lower case alphabetic letters upper case.
+*/
 
 int	ft_toupper(int c)
 {

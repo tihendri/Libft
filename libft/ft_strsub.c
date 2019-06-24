@@ -6,11 +6,19 @@
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 14:43:20 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/06 14:20:08 by tihendri         ###   ########.fr       */
+/*   Updated: 2019/06/24 14:42:37 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+**Allocates and returns a “fresh” substring from the string given as argument.
+**The substring begins at index start and is of size len.
+**If start and len aren’t refering to a valid substring,
+**the behavior is undefined.
+**If the allocation fails, the function returns NULL.
+*/
 
 char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {

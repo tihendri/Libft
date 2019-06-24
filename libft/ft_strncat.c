@@ -6,11 +6,16 @@
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 12:16:14 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/05 14:42:13 by tihendri         ###   ########.fr       */
+/*   Updated: 2019/06/24 14:04:59 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+**appends (adds to the end of) not more than n characters from s2,
+**and then adds a terminating `\0'.
+*/
 
 char	*ft_strncat(char *s1, const char *s2, size_t n)
 {

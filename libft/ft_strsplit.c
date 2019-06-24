@@ -6,14 +6,25 @@
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 15:57:36 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/13 09:11:54 by tihendri         ###   ########.fr       */
+/*   Updated: 2019/06/24 16:53:51 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-static size_t	ft_count_word(char *s, char c)
+/*
+**Allocates (with malloc(3)) and returns an array of “fresh” strings
+**(all ending with ’\0’, including the array itself) obtained by spliting s
+**using the character c as a delimiter.
+**If the allocation fails the function returns NULL.
+*/
+
+/*
+**Create a function to count the words int the string.
+**The words will be delimited by c.
+*/
+
+static int		ft_count_words(char const *s, char c)
 {
 	size_t		n;
 
@@ -28,6 +39,10 @@ static size_t	ft_count_word(char *s, char c)
 	}
 	return (n);
 }
+
+/*
+**Create a function to copy part of string.
+*/
 
 static void		ft_copy(char *dest, char *start, char *end)
 {
@@ -86,7 +101,7 @@ char			**ft_strsplit(char const *s, char c)
 
 	if (s)
 	{
-		arr = (char**)malloc(sizeof(char*) * (ft_count_word((char*)s, c) + 1));
+		arr = (char**)malloc(sizeof(char*) * (ft_count_words((char*)s, c) + 1));
 		if (arr == NULL)
 			return (NULL);
 		arr = make_array(arr, s, c);

@@ -6,7 +6,7 @@
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 11:25:48 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/24 13:32:05 by tihendri         ###   ########.fr       */
+/*   Updated: 2019/06/24 14:51:33 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*
 **Applies the function f to each character of the string passed as argument.
-**Each address is passed by address to f to be modified if necessary.
+**Each address is passed to f to be modified if necessary.
 */
 
 void	ft_striter(char *s, void (*f)(char *))

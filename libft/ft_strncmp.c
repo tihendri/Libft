@@ -6,11 +6,17 @@
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/23 13:06:11 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/13 13:44:45 by tihendri         ###   ########.fr       */
+/*   Updated: 2019/06/24 15:00:25 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+**compares not more than n characters.
+**designed for comparing strings rather than binary data,
+**thus characters that appear after a `\0' character are not compared
+*/
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
