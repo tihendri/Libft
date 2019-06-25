@@ -12,6 +12,14 @@
 
 #include "libft.h"
 
+/*
+**Adds the element new at the beginning of the list.
+**Arrow shows the reference inside the current block of the list.
+**next (line 23) points to a pointer to alst,
+**then (line 24) the pointer to alst points to a new list,
+**thus a new list has been added.
+*/
+
 void	ft_lstadd(t_list **alst, t_list *new)
 {
 	new->next = *alst;
