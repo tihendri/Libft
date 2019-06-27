@@ -6,7 +6,7 @@
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 13:26:58 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/24 11:25:38 by tihendri         ###   ########.fr       */
+/*   Updated: 2019/06/27 13:58:13 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strtrim(char const *s);
 char				*ft_strncpy(char *dst, const char *src, size_t len);
 int					ft_atoi(const char *str);
+int					ft_count_letters(const char *str, char c);
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
 int					ft_isascii(int c);
@@ -67,6 +68,7 @@ void				ft_putnbr(int n);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putstr(char const *s);
 void				ft_putstr_fd(char const *s, int fd);
+void				*ft_realloc(void *ptr, size_t size);
 void				ft_strclr(char *s);
 void				ft_strdel(char **as);
 void				ft_striter(char *s, void (*f)(char *));
