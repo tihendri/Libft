@@ -5,13 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/31 15:57:36 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/27 16:02:04 by tihendri         ###   ########.fr       */
+/*   Created: 2019/06/27 16:35:55 by tihendri          #+#    #+#             */
+/*   Updated: 2019/06/28 09:29:35 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 /*
 **Allocates (with malloc(3)) and returns an array of “fresh” strings
@@ -25,62 +24,44 @@
 **ft_wordcount, then allocate memory for those words.
 **Then we need to get the number of words in each of those words and allocate
 **space for them aswell (using ft_strnew in a loop until all words are done).
-**
 */
+
+static char		*ft_get_next_word(char const *s, char c, size_t *start)
+{
+	size_t	n;
+
+	while (s[*start] == c)
+		*start += 1;
+	n = *start;
+	while (s[*start])
+	{
+		if (s[*start] == c)
+			break ;
+		*start += 1;
+	}
+	return (ft_strsub(s, n, *start - n));
+}
 
 char			**ft_strsplit(char const *s, char c)
 {
-	int		i;
-	int		n;
-	int		q;
-	char	**string;
+	int		nb_words;
+	char	**split;
+	size_t	i;
+	size_t	start;
 
-	if (!(string = (char **)malloc(sizeof(*string) * (ft_wordcount(s, c) + 1)))
-			|| !s || !c)
+	if (!s)
 		return (NULL);
-	i = -1;
-	n = 0;
-	while (++i < ft_wordcount(s, c))
+	nb_words = ft_wordcount(s, c);
+	split = (char **)malloc(sizeof(char *) * (nb_words + 1));
+	if (split == NULL)
+		return (NULL);
+	i = 0;
+	start = 0;
+	while (nb_words--)
 	{
-		q = 0;
-		string[i] = ft_strnew(ft_count_letters(&s[n], c) + 1);
-		if (!(string[i]))
-			string[i] = NULL;
-		while (s[n] == c)
-			n++;
-		while (s[n] != c && s[n])
-			string[i][q++] = s[n++];
-		string[i][q] = '\0';
+		split[i] = ft_get_next_word(s, c, &start);
+		i++;
 	}
-	return (string);
-}
-
-static int		freefunct(void **tab)
-{
-	unsigned int	i;
-
-	if (tab == NULL)
-		return (0);
-		i = 0;
-	while (tab[i] != NULL)
-	{
-		free(tab[i]);
-		i = i + 1;
-	}
-	free(tab);
-	return (1);
-}
-int				main(void)
-{
-	char	**ret;
-
-	ft_strsplit(NULL, 0);
-	ft_strsplit(NULL, 'a');
-	ret = ft_strsplit("", '*');
-	if (ret == NULL || ret[0] != NULL)
-	{
-		printf("Returns NULL or the first pointer in your tab is NULL\n");
-		freefunct((void **)ret);
-		return (0);
-	}
+	split[i] = NULL;
+	return (split);
 }

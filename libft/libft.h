@@ -6,7 +6,7 @@
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 13:26:58 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/27 13:58:13 by tihendri         ###   ########.fr       */
+/*   Updated: 2019/06/28 09:48:02 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int					ft_isalpha(int c);
 int					ft_isascii(int c);
 int					ft_isdigit(int c);
 int					ft_isprint(int c);
+int					ft_iswhitespace(char c);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 int					ft_putchar(int c);
 int					ft_strcmp(const char *s1, const char *s2);

@@ -6,11 +6,12 @@
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 16:38:52 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/24 16:26:21 by tihendri         ###   ########.fr       */
+/*   Updated: 2019/06/27 17:40:09 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 /*
 **Counts how many words are in a string.
@@ -19,16 +20,23 @@
 
 int	ft_wordcount(char const *s, char c)
 {
-	size_t		n;
+	size_t	n;
+	int		nb_words;
+	int		new_word;
 
 	n = 0;
-	while (*s)
+	nb_words = 0;
+	new_word = 1;
+	while (s[n])
 	{
-		while (*s == c)
-			s++;
-		while (*s != c && *s)
-			s++;
+		if (new_word && s[n] != c)
+		{
+			nb_words++;
+			new_word = 0;
+		}
+		if (s[n] == c)
+			new_word = 1;
 		n++;
 	}
-	return (n);
+	return (nb_words);
 }

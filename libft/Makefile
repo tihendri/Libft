@@ -6,7 +6,7 @@
 #    By: tihendri <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/05 14:09:03 by tihendri          #+#    #+#              #
-#    Updated: 2019/06/27 13:59:10 by tihendri         ###   ########.fr        #
+#    Updated: 2019/06/28 09:48:34 by tihendri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,8 @@ PART2	= ft_memalloc.c ft_memdel.c ft_strnew.c ft_strdel.c ft_strclr.c \
 BONUS	= ft_lstadd.c ft_lstnew.c ft_lstdelone.c ft_lstdel.c \
 		  ft_lstiter.c ft_lstmap.c
 
-EXTRA	= ft_wordcount.c ft_strndup.c ft_realloc.c ft_count_letters.c
+EXTRA	= ft_wordcount.c ft_strndup.c ft_realloc.c ft_count_letters.c \
+		  ft_iswhitespace.c
 
 FILES 	= $(PART1) $(PART2) $(BONUS) $(EXTRA)
 
