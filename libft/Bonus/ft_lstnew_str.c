@@ -1,44 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew_str.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/21 13:55:17 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/24 13:10:49 by tihendri         ###   ########.fr       */
+/*   Created: 2019/08/12 10:55:20 by tihendri          #+#    #+#             */
+/*   Updated: 2019/08/12 12:05:22 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-/*
-**locates the first occurrence of c (converted to a char) in the string pointed
-**to by s.
-**returns a pointer to the located character, or NULL if the character does
-**not appear in the string.
-*/
-
-char	*ft_strchr(const char *s, int c)
+t_list		*ft_lstnew_str(char *content)
 {
-	size_t		n;
+	t_list	*temp;
+	int		i;
+	char	*arr;
 
-	n = 0;
-	if (c == 0)
+	if (!(temp = (t_list *)malloc(sizeof(t_list))))
+		return (NULL);
+	if (content == NULL)
 	{
-		while (s[n])
-		{
-			n++;
-		}
-		return ((char *)s + n);
+		temp->content = NULL;
+		temp->content_size = 0;
+		temp->next = NULL;
+		return (temp);
 	}
-	while (s[n])
+	arr = malloc(sizeof(char) * ft_strlen(content) + 1);
+	i = 0;
+	while (content[i])
 	{
-		if (s[n] == c)
-		{
-			return ((char *)s + n);
-		}
-		n++;
+		arr[i] = content[i];
+		i++;
 	}
-	return (NULL);
+	arr[i] = '\0';
+	temp->content = (void *)arr;
+	temp->next = NULL;
+	return (temp);
 }

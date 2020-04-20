@@ -16,6 +16,7 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
+# define BUFF_SIZE 32
 
 char				**ft_strsplit(char const *s, char c);
 char				*ft_itoa(int n);
@@ -51,6 +52,7 @@ int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
+long				ft_atol(const char *s);
 int					ft_wordcount(char const *s, char c);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlen(const char *s);
@@ -75,6 +77,8 @@ void				ft_strdel(char **as);
 void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 
+int					get_next_line(const int fd, char **line);
+
 typedef struct		s_list
 {
 	void					*content;
@@ -84,7 +88,9 @@ typedef struct		s_list
 
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list				*ft_lstnew(void const *content, size_t content_size);
+t_list				*ft_lstnew_str(char *content);
 void				ft_lstadd(t_list **alst, t_list *new);
+void				ft_lstaddtail(t_list **alst, t_list *new);
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));

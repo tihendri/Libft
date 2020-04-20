@@ -1,34 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/27 10:14:11 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/24 11:52:28 by tihendri         ###   ########.fr       */
+/*   Created: 2019/07/12 10:16:58 by tihendri          #+#    #+#             */
+/*   Updated: 2019/07/25 13:00:21 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
 /*
-**locates the first occurrence of c (converted to an unsigned char) in string s.
-**returns a pointer to the byte located,
-**or NULL if no such byte exists within n bytes.
+**Converts the string's ascii values to type long.
+**Exactly the same as ft_atoi, the only difference being the return type.
 */
 
-void	*ft_memchr(const void *s, int c, size_t n)
+long	ft_atol(const char *s)
 {
-	const unsigned char	*e;
+	long	p;
+	int		sign;
 
-	e = s;
-	while (n--)
+	sign = 1;
+	p = 0;
+	while (*s == '\t' || *s == ' ' || *s == '\n' || *s == '\f'
+			|| *s == '\r' || *s == '\v')
+		s++;
+	if (*s == '-')
 	{
-		if (*e++ == (unsigned char)c)
-		{
-			return ((void *)--e);
-		}
+		sign = -1;
+		s++;
 	}
-	return (NULL);
+	else if (*s == '+')
+		s++;
+	while (ft_isdigit(*s))
+	{
+		p = p * 10 + *s - '0';
+		s++;
+	}
+	return (p * sign);
 }

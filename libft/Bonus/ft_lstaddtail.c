@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_lstaddtail.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tihendri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/24 11:07:44 by tihendri          #+#    #+#             */
-/*   Updated: 2019/06/24 11:30:44 by tihendri         ###   ########.fr       */
+/*   Created: 2019/08/12 12:03:46 by tihendri          #+#    #+#             */
+/*   Updated: 2019/08/15 14:04:41 by tihendri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-/*
-**checks whether any input character is in the alphabet or if it is a digit.
-*/
-
-int	ft_isalnum(int c)
+void	ft_lstaddtail(t_list **alst, t_list *new)
 {
-	if ((ft_isalpha(c)) || (ft_isdigit(c)))
-		return (1);
-	return (0);
+	t_list *temp;
+
+	temp = *alst;
+	if (temp == NULL)
+	{
+		*alst = new;
+		new->next = NULL;
+	}
+	else
+	{
+		while (temp->next != NULL)
+			temp = temp->next;
+		temp->next = new;
+		new->next = NULL;
+	}
 }
